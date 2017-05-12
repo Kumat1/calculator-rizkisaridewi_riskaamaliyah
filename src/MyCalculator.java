@@ -16,15 +16,18 @@ public class MyCalculator extends Frame
     public boolean setClear=true;
     double number, memValue;
     char op;
-    Label displayLabel=new Label("0",Label.LEFT);
-    Label memLabel=new Label(" ",Label.LEFT);
+
+
     String digitButtonText[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0","." };
     String operatorButtonText[] = {"+", "-", "*", "/", "1/X", "=" };
     String specialButtonText[] = {"Backspace", "AC","+/-" };
+
     MyDigitButton digitButton[]=new MyDigitButton[digitButtonText.length];
     MyOperatorButton operatorButton[]=new MyOperatorButton[operatorButtonText.length];
     MySpecialButton specialButton[]=new MySpecialButton[specialButtonText.length];
 
+    Label displayLabel = new Label("0", Label.LEFT);
+    Label memLabel = new Label(" ", Label.LEFT);
 
 
 //Kontraktor
