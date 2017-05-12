@@ -10,25 +10,20 @@
 public class MyCalculator extends Frame
 {
 
-    public boolean setClear=true;
-    double number, memValue;
-    char op;
-
-    String digitButtonText[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0","." };
-    String operatorButtonText[] = {"+", "-", "*", "/", "1/X", "=" };
-    String specialButtonText[] = {"Backspace", "AC","+/-" };
-
-    Label displayLabel=new Label("0",Label.LEFT);
-    Label memLabel=new Label(" ",Label.LEFT);
-
-    MyDigitButton digitButton[]=new MyDigitButton[digitButtonText.length];
-    MyOperatorButton operatorButton[]=new MyOperatorButton[operatorButtonText.length];
-    MySpecialButton specialButton[]=new MySpecialButton[specialButtonText.length];
-
-
     final int FRAME_WIDTH=400,FRAME_HEIGHT=400;
     final int HEIGHT=40, WIDTH=40, H_SPACE=25,V_SPACE=15;
     final int TOPX=50, TOPY=50;
+    public boolean setClear=true;
+    double number, memValue;
+    char op;
+    Label displayLabel=new Label("0",Label.LEFT);
+    Label memLabel=new Label(" ",Label.LEFT);
+    String digitButtonText[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0","." };
+    String operatorButtonText[] = {"+", "-", "*", "/", "1/X", "=" };
+    String specialButtonText[] = {"Backspace", "AC","+/-" };
+    MyDigitButton digitButton[]=new MyDigitButton[digitButtonText.length];
+    MyOperatorButton operatorButton[]=new MyOperatorButton[operatorButtonText.length];
+    MySpecialButton specialButton[]=new MySpecialButton[specialButtonText.length];
 
 
 
