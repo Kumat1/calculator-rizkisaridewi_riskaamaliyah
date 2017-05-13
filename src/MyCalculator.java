@@ -1,33 +1,35 @@
 /**
- * Created by user on 09/05/2017.
+ * Created by Rizki Sari Dewi on 09/05/2017.
  */
 
 
     import java.awt.*;
-            import java.awt.event.*;
+    import java.awt.event.*;
 
 
 public class MyCalculator extends Frame
 {
 
-    final int FRAME_WIDTH=400,FRAME_HEIGHT=400;
-    final int HEIGHT=40, WIDTH=40, H_SPACE=25,V_SPACE=15;
-    final int TOPX=50, TOPY=50;
     public boolean setClear=true;
     double number, memValue;
     char op;
 
-
     String digitButtonText[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0","." };
-    String operatorButtonText[] = {"+", "-", "*", "/", "1/X", "=" };
+    String operatorButtonText[] = {"+", "-", "*", "/", "1/X", "sqrt","%", "=" };
     String specialButtonText[] = {"Backspace", "AC","+/-" };
+
+    Label displayLabel=new Label("0",Label.LEFT);
+    Label memLabel=new Label(" ",Label.LEFT);
 
     MyDigitButton digitButton[]=new MyDigitButton[digitButtonText.length];
     MyOperatorButton operatorButton[]=new MyOperatorButton[operatorButtonText.length];
     MySpecialButton specialButton[]=new MySpecialButton[specialButtonText.length];
 
-    Label displayLabel = new Label("0", Label.LEFT);
-    Label memLabel = new Label(" ", Label.LEFT);
+
+    final int FRAME_WIDTH=400,FRAME_HEIGHT=400;
+    final int HEIGHT=40, WIDTH=40, H_SPACE=25,V_SPACE=15;
+    final int TOPX=50, TOPY=50;
+
 
 
 //Kontraktor
@@ -130,7 +132,15 @@ class MyOperatorButton extends Button implements ActionListener
             {cl.displayLabel.setText("Divide by 0.");}
             return;
         }
-
+        if(opText.equals("sqrt"))
+        {
+            try
+            {double tempd=Math.sqrt(temp);
+                cl.displayLabel.setText(MyCalculator.getFormattedText(tempd));}
+            catch(ArithmeticException excp)
+            {cl.displayLabel.setText("Divide by 0.");}
+            return;
+        }
         if(!opText.equals("="))
         {
             cl.number=temp;
@@ -146,6 +156,11 @@ class MyOperatorButton extends Button implements ActionListener
                 temp=cl.number-temp;break;
             case '*':
                 temp*=cl.number;break;
+            case '%':
+                try{temp=cl.number%temp;}
+                catch(ArithmeticException excp)
+                {cl.displayLabel.setText("Divide by 0."); return;}
+                break;
             case '/':
                 try{temp=cl.number/temp;}
                 catch(ArithmeticException excp)
@@ -256,5 +271,3 @@ class MySpecialButton extends Button implements ActionListener
         cl.displayLabel.setText("0");cl.setClear=true;
     }//actionPerformed
 }//class
-
-
